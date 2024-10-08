@@ -37,6 +37,7 @@ RUN chmod 600 /home/master/.ssh/authorized_keys && \
     chown master:master /home/master/.ssh/authorized_keys
 
 RUN echo 'flag{this_is_the_first_step}' > /home/master/flag.txt && chmod 700 /home/master/flag.txt
+RUN chown master:master /home/master/flag.txt
 RUN echo 'flag{Y0ur_task_is_completed}' > /root/flag.txt
 RUN chmod u+s /usr/bin/find
 
