@@ -1,7 +1,7 @@
 #!/bin/sh
 
-docker stop my_ssh_container
-docker rm my_ssh_container
+docker stop ssh_container
+docker rm ssh_container
 
 docker stop writable_shadow_container
 docker rm writable_shadow_container
